@@ -18,7 +18,7 @@ public class PublisherController {
     @Autowired
     PublisherRepository publisherRepository;
 
-    @PostMapping
+    @PostMapping("insertPublisher")
     public ResponseEntity<Publisher> insertPublisher(@RequestBody Publisher publisher) {
 
         try {
@@ -29,7 +29,7 @@ public class PublisherController {
         }
     }
 
-    @GetMapping
+    @GetMapping("getAllPublishers")
     public ResponseEntity<List<Publisher>> getAllPublishers() {
 
         List<Publisher> result = new ArrayList<Publisher>();
@@ -45,16 +45,12 @@ public class PublisherController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/test/{id}")
     public ResponseEntity<Publisher> getPublisherById(@PathVariable("id") int id){
 
         try {
-            Publisher result = publisherRepository.getById(id);
-            if(result != null) {
-                return new ResponseEntity<Publisher>(result, HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
+            Publisher result = publisherRepository.getReferenceById(id);
+            return new ResponseEntity<Publisher>(result, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
