@@ -6,23 +6,25 @@
           <img class="logo" src="./assets/build-a-bot-logo.png"/>
           Build-a-Bot
         </li>
+        <li class="nav-item">
+          Home
+        </li>
       </ul>
     </nav>
   </header>
   <main>
+    <HomePage />
     <RobotBuilder />
-    <Search />
   </main>
 </template>
 <script>
-// import HomePage from './home/HomePage.vue';
+import HomePage from './home/HomePage.vue';
 import RobotBuilder from './build/RobotBuilder.vue';
-// import Search from './search/Search.vue';
 
 export default {
   name: 'App',
   components: {
-    RobotBuilder,
+    HomePage, RobotBuilder,
   },
 };
 </script>

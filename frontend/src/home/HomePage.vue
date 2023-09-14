@@ -1,19 +1,26 @@
 <template>
   <div class="home">
-    <div>
-      <img class="robot" src="../assets/robot-home.png" aria-hidden="true"/>
-    </div>
-    <div class="get-started">
-      <a href="">Get started</a> building your first robot!
-    </div>
+    <button clase="add-to-cart" @click="getData()">Get Data</button>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'HomePage',
-  props: {
-    msg: String,
+  data() {
+  return {
+    publishers: [],
+    };
+  },
+  methods: {
+      getData() {
+        axios.get('http://localhost:8080/api/publisher/getAllPublishers')
+          .then((response) => {
+            console.log(response);
+          });
+    },
   },
 };
 </script>
@@ -25,5 +32,12 @@ export default {
 }
 .robot {
   height: 300px;
+}
+.add-to-cart {
+  position: absolute;
+  right: 30px;
+  width: 220px;
+  padding: 3px;
+  font-size: 16px;
 }
 </style>
