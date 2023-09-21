@@ -4,7 +4,7 @@
       <ul>
         <li class="nav-item">
           <img class="logo" src="./assets/build-a-bot-logo.png"/>
-          Build-a-Bot
+          Tinker Time
         </li>
         <li class="nav-item">
           Home
@@ -19,12 +19,11 @@
 </template>
 <script>
 import HomePage from './home/HomePage.vue';
-import RobotBuilder from './build/RobotBuilder.vue';
 
 export default {
   name: 'App',
   components: {
-    HomePage, RobotBuilder,
+    HomePage,
   },
 };
 </script>
@@ -46,7 +45,7 @@ export default {
     min-height: 300px;
   }
   header {
-    background-color: #999;
+    background-color: #497575;
     width: 1084px;
     margin: 0 auto;
   }
